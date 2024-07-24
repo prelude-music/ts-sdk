@@ -1,0 +1,23 @@
+{
+  "name": "@prelude-music/ts-sdk",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "LGPL-3.0-only",
+  "description": "Prelude TypeScript SDK",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@prelude-music/ts-client": "github:prelude-music/ts-client"
+  }
+}
