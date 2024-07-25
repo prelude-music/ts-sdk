@@ -61,7 +61,7 @@ class Version {
     public isCompatible(a: Version | Version.Versionable): boolean {
         const version = a instanceof Version ? a : a.version;
         if (this.major !== version.major) return false;
-        return this.minor > version.minor;
+        return this.minor >= version.minor;
     }
 }
 
