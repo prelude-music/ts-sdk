@@ -104,4 +104,18 @@ export class Track extends Resource {
             return null;
         return await this.sdk.album.get(this.#album);
     }
+
+    /**
+     * Track cover art image URL
+     */
+    public image(): URL {
+        return ApiClient.ApiRequest.concatUrl(this.sdk.api.baseUrl, `/tracks/${this.id}/image`);
+    }
+
+    /**
+     * Track audio file URL
+     */
+    public audio(): URL {
+        return ApiClient.ApiRequest.concatUrl(this.sdk.api.baseUrl, `/tracks/${this.id}/audio`);
+    }
 }

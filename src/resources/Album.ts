@@ -49,4 +49,11 @@ export class Album extends Resource {
     public async tracks(): Promise<Page<Track>> {
         return new Page<Track>(Track, this.sdk, await this.sdk.api.listAlbumTracks(this.id));
     }
+
+    /**
+     * Album cover art image URL
+     */
+    public image(): URL {
+        return ApiClient.ApiRequest.concatUrl(this.sdk.api.baseUrl, `/albums/${this.id}/image`);
+    }
 }
