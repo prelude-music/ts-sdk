@@ -6,11 +6,15 @@ import {ServerInfo} from "./ServerInfo.js";
 /**
  * Prelude SDK
  */
-export class Prelude {
+export class Prelude implements Version.Versionable {
     /**
      * The API version this SDK is compatible with
      */
     public static readonly VERSION = Version.from("0.0.0");
+    /**
+     * The API version this SDK is compatible with
+     */
+    public readonly version = Prelude.VERSION;
 
     /** @internal **/
     public readonly api: ApiClient;
