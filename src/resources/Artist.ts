@@ -54,4 +54,11 @@ export class Artist extends Resource {
     public async tracks(): Promise<Page<Track>> {
         return new Page<Track>(Track, this.sdk, await this.sdk.api.listArtistTracks(this.id));
     }
+
+    /**
+     * Get artist's proxied image URL
+     */
+    public proxiedImage(): URL {
+        return ApiClient.ApiRequest.concatUrl(this.sdk.api.baseUrl, `/artists/${this.id}/image`);
+    }
 }
