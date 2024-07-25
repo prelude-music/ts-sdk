@@ -6,6 +6,6 @@ export abstract class Resource {
      */
     public abstract readonly id: string;
 
-    protected constructor(protected readonly sdk: Prelude) {
+    protected constructor(public readonly sdk: Prelude) {
     }
 }
