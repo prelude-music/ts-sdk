@@ -27,6 +27,10 @@ class Version {
         return new Version(major, minor, patch, label);
     }
 
+    public toString() {
+        return `${this.major}.${this.minor}.${this.patch}${this.label === undefined ? "" : `-${this.label}`}`;
+    }
+
     /**
      * Check whether this version (local) is compatible with the given version (remote)
      *
