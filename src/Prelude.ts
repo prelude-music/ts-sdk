@@ -9,6 +9,13 @@ export class Prelude {
     public readonly api: ApiClient;
 
     /**
+     * API server info
+     */
+    public async info() {
+        return await this.api.info();
+    }
+
+    /**
      * Artists
      */
     public readonly artist = {
