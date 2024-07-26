@@ -45,9 +45,11 @@ export class Album extends Resource {
 
     /**
      * Get tracks
+     * @param [limit] Number of resources to request per page
+     * @param [page] Page number to request
      */
-    public async tracks(): Promise<Page<Track>> {
-        return new Page<Track>(Track, this.sdk, await this.sdk.api.listAlbumTracks(this.id));
+    public async tracks(limit?: number, page?: number): Promise<Page<Track>> {
+        return new Page<Track>(Track, this.sdk, await this.sdk.api.listAlbumTracks(this.id, limit, page));
     }
 
     /**

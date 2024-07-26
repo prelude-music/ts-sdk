@@ -43,16 +43,20 @@ export class Artist extends Resource {
 
     /**
      * Get artist's albums
+     * @param [limit] Number of resources to request per page
+     * @param [page] Page number to request
      */
-    public async albums(): Promise<Page<Album>> {
-        return new Page<Album>(Album, this.sdk, await this.sdk.api.listArtistAlbums(this.id));
+    public async albums(limit?: number, page?: number): Promise<Page<Album>> {
+        return new Page<Album>(Album, this.sdk, await this.sdk.api.listArtistAlbums(this.id, limit, page));
     }
 
     /**
      * Get artist's tracks
+     * @param [limit] Number of resources to request per page
+     * @param [page] Page number to request
      */
-    public async tracks(): Promise<Page<Track>> {
-        return new Page<Track>(Track, this.sdk, await this.sdk.api.listArtistTracks(this.id));
+    public async tracks(limit?: number, page?: number): Promise<Page<Track>> {
+        return new Page<Track>(Track, this.sdk, await this.sdk.api.listArtistTracks(this.id, limit, page));
     }
 
     /**
