@@ -93,9 +93,10 @@ export class Page<T extends Resource> {
         if (start !== undefined) this.res.req.url.searchParams.set("page", start.toString());
         this.res.req.url.searchParams.set("limit", limit.toString());
         let current = new Page<T>(this.ResourceConstructor, this.sdk, await ApiClient.ApiResponse.from<ApiClient.Page<unknown>>(this.res.req, await this.res.req.fetch()));
+        yield current;
         while (!current.last) {
-            yield current;
             current = await current.next();
+            yield current;
         }
     }
 
