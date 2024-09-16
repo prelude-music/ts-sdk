@@ -1,12 +1,30 @@
 import ApiClient from "@prelude-music/ts-client";
 import {Page, Artist, Album, Track} from "./index.js";
+import {Version} from "./Version.js";
+import {ServerInfo} from "./ServerInfo.js";
 
 /**
  * Prelude SDK
  */
-export class Prelude {
+export class Prelude implements Version.Versionable {
+    /**
+     * The API version this SDK is compatible with
+     */
+    public static readonly VERSION = Version.from("0.0.0");
+    /**
+     * The API version this SDK is compatible with
+     */
+    public readonly version = Prelude.VERSION;
+
     /** @internal **/
     public readonly api: ApiClient;
+
+    /**
+     * API server info
+     */
+    public async info() {
+        return new ServerInfo(Version.from((await this.api.info()).body.prelude.version));
+    }
 
     /**
      * Artists
